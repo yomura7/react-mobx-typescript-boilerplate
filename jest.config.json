@@ -5,7 +5,7 @@
   "coverageReporters": ["cobertura", "html", "text-summary", "json-summary"],
   "moduleFileExtensions": ["js", "jsx", "json", "ts", "tsx"],
   "setupFiles": ["<rootDir>/__tests__/setup.ts"],
-  "testPathIgnorePatterns": ["/build/", "/node_modules/"],
+  "testPathIgnorePatterns": ["<rootDir>/build/", "<rootDir>/node_modules/"],
   "testRegex": "/__tests__/.*\\.test\\.(ts|tsx|js)$",
   "transform": {
     ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
