@@ -1,14 +1,7 @@
-import * as React from 'react';
+import * as React from "react";
 
-export class Root extends React.Component<any, any> {
-  renderDevTool() {
-    if (process.env.NODE_ENV !== 'production') {
-      const DevTools = require('mobx-react-devtools').default;
-      return <DevTools />;
-    }
-  }
-
-  render() {
+export default class Root extends React.Component {
+  public render() {
     return (
       <div className="container">
         {this.props.children}
@@ -16,4 +9,12 @@ export class Root extends React.Component<any, any> {
       </div>
     );
   }
+
+  private renderDevTool = () => {
+    if (process.env.NODE_ENV !== "production") {
+      const DevTools = require("mobx-react-devtools").default;
+      return <DevTools />;
+    }
+    return null;
+  };
 }

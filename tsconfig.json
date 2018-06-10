@@ -1,24 +1,21 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "target": "es5",
-    "jsx": "react",
-    "module": "es6",
-    "moduleResolution": "node",
+    "baseUrl": "src",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "declaration": false,
-    "noImplicitAny": false,
-    "noImplicitReturns": false,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "removeComments": true,
-    "strictNullChecks": false,
+    "noUnusedParameters": true,
     "outDir": "build",
-    "lib": ["es6", "es7", "dom"],
-    "baseUrl": "src",
     "paths": {
       "app/*": ["./app/*"]
-    }
+    },
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5"
   },
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["build", "node_modules"]
 }

@@ -1,36 +1,37 @@
-import { observable, computed, action } from 'mobx';
-import { TodoModel } from 'app/models';
+import { action, computed, observable } from "mobx";
 
-export class TodoStore {
+import { TodoModel } from "app/models";
+
+export default class TodoStore {
+  @observable public todos: TodoModel[];
+
   constructor(fixtures: TodoModel[]) {
     this.todos = fixtures;
   }
 
-  @observable public todos: Array<TodoModel>;
-
   @computed
   get activeTodos() {
-    return this.todos.filter((todo) => !todo.completed);
+    return this.todos.filter(todo => !todo.completed);
   }
 
   @computed
   get completedTodos() {
-    return this.todos.filter((todo) => todo.completed);
+    return this.todos.filter(todo => todo.completed);
   }
 
   @action
-  addTodo = (item: Partial<TodoModel>): void => {
+  public addTodo = (item: Partial<TodoModel>): void => {
     this.todos.push(new TodoModel(item.text, item.completed));
   };
 
   @action
-  editTodo = (id: number, data: Partial<TodoModel>): void => {
-    this.todos = this.todos.map((todo) => {
+  public editTodo = (id: number, data: Partial<TodoModel>): void => {
+    this.todos = this.todos.map(todo => {
       if (todo.id === id) {
-        if (typeof data.completed == 'boolean') {
+        if (typeof data.completed === "boolean") {
           todo.completed = data.completed;
         }
-        if (typeof data.text == 'string') {
+        if (typeof data.text === "string") {
           todo.text = data.text;
         }
       }
@@ -39,19 +40,21 @@ export class TodoStore {
   };
 
   @action
-  deleteTodo = (id: number): void => {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
+  public deleteTodo = (id: number): void => {
+    this.todos = this.todos.filter(todo => todo.id !== id);
   };
 
   @action
-  completeAll = (): void => {
-    this.todos = this.todos.map((todo) => ({ ...todo, completed: true }));
+  public toggleAll = (): void => {
+    const allCompleted = this.todos.every(todo => todo.completed);
+    this.todos = this.todos.map(todo => ({
+      ...todo,
+      completed: !allCompleted,
+    }));
   };
 
   @action
-  clearCompleted = (): void => {
-    this.todos = this.todos.filter((todo) => !todo.completed);
+  public clearCompleted = (): void => {
+    this.todos = this.todos.filter(todo => !todo.completed);
   };
 }
-
-export default TodoStore;

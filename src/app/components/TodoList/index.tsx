@@ -1,53 +1,51 @@
-import * as React from 'react';
-import { TodoItem, TodoActions } from 'app/components/TodoItem';
-import { TodoModel } from 'app/models/TodoModel';
-import * as style from './style.css';
+import * as React from "react";
 
-export interface TodoListProps extends TodoActions {
-  todos: TodoModel[];
-  completeAll: () => any;
+import TodoItem, { TodoActions } from "app/components/TodoItem";
+import TodoModel from "app/models/TodoModel";
+import * as style from "./style.css";
+
+interface Props extends TodoActions {
+  allCompleted: boolean;
+  filteredTodos: TodoModel[];
+  hasTodos: boolean;
+  toggleAll: () => void;
 }
 
-export interface TodoListState {}
-
-export class TodoList extends React.Component<TodoListProps, TodoListState> {
-  constructor(props?: TodoListProps, context?: any) {
+export default class TodoList extends React.Component<Props> {
+  constructor(props: Props, context?: any) {
     super(props, context);
   }
 
-  private handleToggleAll = (e: React.SyntheticEvent<any>) => {
-    e.preventDefault();
-    this.props.completeAll();
-  };
-
-  renderToggleAll() {
-    const { todos } = this.props;
-    const completedCount = todos.length;
-    if (todos.length > 0) {
-      return (
-        <input
-          className={style.toggleAll}
-          type="checkbox"
-          checked={completedCount === todos.length}
-          onChange={this.handleToggleAll}
-        />
-      );
-    }
-  }
-
-  render() {
-    const { todos, ...actions } = this.props;
+  public render() {
+    const { filteredTodos, ...actions } = this.props;
     return (
       <section className={style.main}>
         {this.renderToggleAll()}
         <ul className={style.normal}>
-          {todos.map((todo) => (
+          {filteredTodos.map(todo => (
             <TodoItem key={todo.id} todo={todo} {...actions} />
           ))}
         </ul>
       </section>
     );
   }
-}
 
-export default TodoList;
+  private renderToggleAll = () => {
+    const { allCompleted, hasTodos } = this.props;
+    if (hasTodos) {
+      return (
+        <input
+          className={style.toggleAll}
+          type="checkbox"
+          checked={allCompleted}
+          onChange={this.handleToggleAll}
+        />
+      );
+    }
+    return null;
+  };
+
+  private handleToggleAll = () => {
+    this.props.toggleAll();
+  };
+}

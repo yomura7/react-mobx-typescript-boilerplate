@@ -50,7 +50,7 @@
 }
 
 .normal .destroy:after {
-  content: '×';
+  content: "×";
 }
 
 .normal:hover .destroy {

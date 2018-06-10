@@ -1,34 +1,29 @@
-import * as React from 'react';
-import { TodoTextInput } from 'app/components/TodoTextInput';
-import { TodoModel } from 'app/models/TodoModel';
+import * as React from "react";
 
-export interface HeaderProps {
-  addTodo: (todo: Partial<TodoModel>) => any;
+import TodoTextInput from "app/components/TodoTextInput";
+import TodoModel from "app/models/TodoModel";
+
+interface Props {
+  addTodo: (todo: Partial<TodoModel>) => void;
 }
 
-export interface HeaderState {
-  /* empty */
-}
-
-export class Header extends React.Component<HeaderProps, HeaderState> {
-  private handleSave = (text: string) => {
-    if (text.length) {
-      this.props.addTodo({ text });
-    }
-  };
-
-  render() {
+export default class Header extends React.Component<Props> {
+  public render() {
     return (
       <header>
-        <h1>Todos</h1>
+        <h1>todos</h1>
         <TodoTextInput
-          newTodo
+          newTodo={true}
           onSave={this.handleSave}
           placeholder="What needs to be done?"
         />
       </header>
     );
   }
-}
 
-export default Header;
+  private handleSave = (text: string) => {
+    if (text.length) {
+      this.props.addTodo({ text });
+    }
+  };
+}

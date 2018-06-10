@@ -93,7 +93,7 @@
 }
 
 .normal li .destroy:after {
-  content: '×';
+  content: "×";
 }
 
 .normal li:hover .destroy {
@@ -120,7 +120,7 @@
 }
 
 .toggleAll:before {
-  content: '❯';
+  content: "❯";
   font-size: 22px;
   color: #e6e6e6;
   padding: 10px 27px 10px 27px;

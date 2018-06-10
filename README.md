@@ -2,17 +2,13 @@
 
 A bare minimum react-mobx-webpack-typescript boilerplate with TodoMVC example.
 
-Note that this project does not include **Server-Side Rendering**,  **Testing Frameworks** and other stuffs that makes the package unnecessarily complicated.
-
 Ideal for creating React apps from the scratch.
-
-See also: [react-redux-typescript-boilerplate](https://github.com/rokoroku/react-redux-typescript-boilerplate)
 
 ## Contains
 
-- [x] [Typescript](https://www.typescriptlang.org/) 2.7
+- [x] [TypeScript](https://www.typescriptlang.org/) 2.9
 - [x] [React](https://facebook.github.io/react/) 16
-- [x] [React Router](https://github.com/ReactTraining/react-router) 4.2
+- [x] [React Router](https://github.com/ReactTraining/react-router) 4
 - [x] [Mobx](https://github.com/mobxjs/mobx)
 - [x] [Mobx React](https://github.com/mobxjs/mobx-react)
 - [x] [Mobx React Router](https://github.com/alisd23/mobx-react-router/)
@@ -32,29 +28,28 @@ See also: [react-redux-typescript-boilerplate](https://github.com/rokoroku/react
 - [x] [ExtractText Plugin](https://github.com/webpack/extract-text-webpack-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
-
 ## Setup
 
 ```
-$ npm install
+$ yarn
 ```
 
 ## Running
 
 ```
-$ npm start
+$ yarn start
 ```
 
 ## Build
 
 ```
-$ npm run build
+$ yarn build
 ```
 
 ## Code Format
 
 ```
-$ npm run prettier
+$ yarn fix
 ```
 
 # License
