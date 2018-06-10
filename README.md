@@ -1,6 +1,7 @@
-# typescript-react-mobx-boilerplate
+# react-mobx-typescript-boilerplate
 
 Frontend boilerplate implementing TodoMVC with React, TypeScript, Webpack, Jest and MobX.
+
 Ideal for creating React apps from the scratch.
 
 ## Contains
