@@ -6,7 +6,7 @@ cache:
 script:
   - "yarn lint"
   - "yarn test"
-  - "env NODE_ENV=production yarn build"
+  - "yarn build"
 deploy:
   provider: pages
   skip_cleanup: true

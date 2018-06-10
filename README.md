@@ -1,7 +1,6 @@
-# Frontend Boilerplate with React, MobX & TypeScript
+# typescript-react-mobx-boilerplate
 
-A bare minimum react-mobx-webpack-typescript boilerplate with TodoMVC example.
-
+Frontend boilerplate implementing TodoMVC with React, TypeScript, Webpack, Jest and MobX.
 Ideal for creating React apps from the scratch.
 
 ## Contains
@@ -20,7 +19,7 @@ Ideal for creating React apps from the scratch.
 - [x] [Webpack](https://webpack.github.io) 4
   - [x] [Tree Shaking](https://webpack.js.org/guides/tree-shaking/)
   - [x] [Webpack Dev Server](https://github.com/webpack/webpack-dev-server)
-- [x] [Typescript Loader](https://github.com/TypeStrong/ts-loader)
+- [x] [TypeScript Loader](https://github.com/TypeStrong/ts-loader)
 - [x] [PostCSS Loader](https://github.com/postcss/postcss-loader)
   - [x] [CSS next](https://github.com/MoOx/postcss-cssnext)
   - [x] [CSS modules](https://github.com/css-modules/css-modules)
